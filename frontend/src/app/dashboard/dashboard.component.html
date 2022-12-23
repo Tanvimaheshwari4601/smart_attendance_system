@@ -1,0 +1,8 @@
+<div>
+    <div *ngIf = "currentLoggedInUser.role == 'STUDENT'">
+        <app-student-dashboard></app-student-dashboard>
+    </div>
+    <div *ngIf = "currentLoggedInUser.role == 'TEACHER'">
+        <app-teacher-dashboard></app-teacher-dashboard>
+    </div>
+</div>

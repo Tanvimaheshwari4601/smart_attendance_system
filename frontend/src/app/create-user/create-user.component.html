@@ -1,0 +1,104 @@
+<div class="col-md-6 offset-md-3 p-3">
+    <h3 class="text-center"> Register a New User </h3>
+    <form (ngSubmit) = "onSubmit()" #userForm="ngForm">
+
+        <div class="form-group">
+            <label> Role </label>
+
+            <select class="form-select " #Role="ngModel" name="role" [(ngModel)]="user.role">
+                <option value="none" selected disabled >Select Role</option>
+                <option *ngFor="let role of Roles" [value]="role"> {{ role }}</option>
+            </select>
+        </div>
+      
+        <div class="form-group my-2" >
+            <label>Name</label>
+            <input  pattern="^[a-zA-Z][a-zA-Z\\s]+$"  required type="text" #name="ngModel" [class.is-invalid]="(name.invalid && name.touched)"  class ="form-control" 
+            id = "name" [(ngModel)] = "user.name" name = "name">
+        
+            <div *ngIf="name.invalid && name.touched" class="text-danger">
+                <span *ngIf="name['errors'] && name['errors']['required']">
+                    First Name is required...
+                </span>
+                <span *ngIf="name['errors'] && name['errors']['pattern']">
+                    Please enter a valid input field...
+                </span>
+            </div>
+        </div>
+    
+        <div class="form-group my-2">
+            <label> Create Password</label>
+            <input type="text"  required #password="ngModel" [class.is-invalid]="(password.invalid && password.touched)" class ="form-control" 
+            id = "password" minlength="8" maxlength="15" [(ngModel)] = "user.password" name = "password">
+            <div *ngIf="password.invalid && password.touched" class="text-danger">
+                
+                <span *ngIf="password['errors'] && password['errors']['required']">
+                    password is required...
+                 </span>
+            </div>
+        </div>
+    
+        <div class="form-group my-2">
+            <label> Email Id</label>
+            <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" #emailid="ngModel" required [class.is-invalid]="(emailid.invalid && emailid.touched)" class ="form-control" 
+            id = "emailId" [(ngModel)] = "user.emailid" name = "emailId">
+            <div *ngIf="emailid.invalid&& emailid.touched" class="text-danger">
+          
+            <span *ngIf="emailid['errors'] && emailid['errors']['required']">
+                emailid is required...
+            </span>
+            <span *ngIf="emailid['errors'] && emailid['errors']['pattern']">
+                Please enter a valid emailid...
+            </span>
+                  
+        </div>
+        </div>
+        <div class="form-group my-2">
+            <label> Roll Number</label>
+            <input type="text" class ="form-control" 
+            id = "rollno"[(ngModel)] = "user.rollno" name = "rollno">     
+        </div>
+        <div *ngIf="user.role == 'STUDENT'">
+            <div class="form-group my-2">
+                <label for="Department">Department</label>
+                <select class="form-select" #Department="ngModel" name="department" [(ngModel)]="user.department" aria-label="Department selector">
+                    <option selected>Select Department</option>
+                    <option *ngFor="let title of departments" 
+                    [value]="title.value" >
+                  {{title.label}} </option>
+                </select>
+            </div>
+
+            <div class="form-group my-2">
+                <label for="year">Year</label>
+                <select class="form-select" #Year="ngModel" name="year" [(ngModel)]="user.year" aria-label="Year Selector">
+                    <option selected>Select Year</option>
+                    <option *ngFor="let title of years" 
+                    [value]="title.value" >
+                  {{title.label}} </option>
+                </select>
+            </div>
+            <div class="form-group my-2">
+                <label for="sem">Semester</label>
+                <select #Sem="ngModel" name="sem" [(ngModel)]="user.sem" class="form-select" aria-label="Semester Selector">
+                    <option selected>Select Sem</option>
+                    <option *ngFor="let title of sems" 
+                    [value]="title.value" >
+                  {{title.label}} </option>
+                </select>
+            </div>
+    
+        </div>
+        
+       
+    
+        <div class="text-center mt-2">
+
+            <button [disabled]="userForm.form.invalid" class = "btn btn-success mt-2"  type ="submit">Submit</button>
+        </div>
+    
+    </form>
+    <div *ngIf="registrationAPIerror" class="alert alert-danger my-3 text-center p-1" >
+        {{registrationAPIerror}}
+    </div>
+    </div> 

@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-sm bg-primary text-white navbar-dark">
+    <ul class = "navbar-nav w-100">
+        <li class="nav-item ms-2 d-flex align-items-center">
+            <button  (click)="home()" class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample"> 
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                  </svg>
+            </button>
+
+            <h2 class="ms-3 m-0">
+                Attendance Details
+            </h2>
+        </li>
+        <!-- <li class="nav-item ms-auto me-2">
+            <button (click)="Dashboard()" class="btn btn-light" data-toggle="tooltip" data-placement="top" title="sheet">Attendance Sheet</button>
+        </li> -->
+
+        <li class="nav-item ms-auto me-2">
+            <button (click)="logout()" class="btn btn-light" data-toggle="tooltip" data-placement="top" title="Logout">Logout </button>
+        </li>
+    </ul>
+  </nav>
+  

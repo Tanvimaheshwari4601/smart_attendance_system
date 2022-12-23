@@ -1,0 +1,28 @@
+<div>
+    <div>
+        {{currentLoggedInUser.name}}
+    </div>
+    <div>
+        <table class="table table=striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email-Id</th>
+                    <th>Role</th>
+                    <!-- <th>Action</th> -->
+                </tr>
+            </thead>
+                <!-- <tbody>
+                    <tr *ngFor="let user of user" class="data-row">
+                        <td>{{user.name}}</td>
+                        <td>{{user.emailid}}</td>
+                        <td>{{user.role}}</td>
+                         <td>
+                            <button (click) = "updateUser(user.id)" class = "btn btn-info" id="update-btn"> Update</button>  
+                            <button (click) = "deleteUser(user.id)" class = "btn btn-danger" style="margin-left: 10px" id="delete-btn"> Delete</button>
+                        <button (click) = "userDetails(user.id)" class = "btn btn-primary" style="margin-left: 10px" id="view-btn"> View</button>              
+                        </td> tr>
+                </tbody> -->
+            </table>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<div  class="sidebar-nav " style="width:200px">
+    <div class="d-flex w-auto flex-column p-1">
+ 
+
+              <ul class="nav nav-tabs menu d-flex">
+                <li *ngIf="savedUser.role != 'STUDENT'">
+                  <a class="active-link" routerLink="/homepage/dashboard" routerLinkActive="active-link"
+                    [routerLinkActiveOptions]="{exact: true}">Dashboard
+                  </a>
+                </li>
+                <li *ngIf="savedUser.role != 'STUDENT'"> 
+                  <a routerLink="/homepage/mark-att" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
+                    Mark Attendance
+                  </a>
+                </li>
+                <li *ngIf="savedUser.role == 'SuperAdmin'">
+                  <a routerLink="/homepage/new-admin-request" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact : true}">
+                    New Admin Request
+                  </a>
+                </li>
+               
+              </ul>
+
+    </div>   
+
+    
+</div>

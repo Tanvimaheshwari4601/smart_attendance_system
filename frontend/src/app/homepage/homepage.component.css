@@ -1,0 +1,18 @@
+.main-container{
+    margin-left: 200px;
+    transition: all 500ms;
+
+
+}
+
+.sidebar-close {
+    background-color: red;
+    margin-left: -200px;
+}
+.main-screen{
+    margin-left: 0px;
+}
+
+.sidebar{
+    transition: all 500ms;
+}

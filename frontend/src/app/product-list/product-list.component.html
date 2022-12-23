@@ -1,0 +1,70 @@
+
+<div class="d-flex justify-content-between p-2">
+  <h2>Product List</h2>
+  <button *ngIf="loggedinUser.role == 'Admin' || loggedinUser.role == 'SuperAdmin'" routerLink="/homepage/Add-Product" class="btn" data-toggle="tooltip" data-placement="top" title="Add Product" routerLinkActive="active">
+
+  
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-bag-plus-fill" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0zM8.5 8a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V12a.5.5 0 0 0 1 0v-1.5H10a.5.5 0 0 0 0-1H8.5V8z"/>
+    </svg>
+  </button>
+</div>
+<table class="table table=striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Price</th>
+            <th>imgURL</th>
+            <th>Category</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+        <tbody>
+            <tr *ngFor="let product of productList" class="data-row">
+                <td>{{product.productTitle}}</td>
+                <td>{{product.price}}</td>
+                <td>{{product.imgURL}}</td>
+                <td>{{product.category}}</td>
+                <td>
+                  <span *ngIf="loggedinUser.role == 'Admin' || loggedinUser.role == 'SuperAdmin'">
+
+                  <button (click) = "updateProduct(product.productId)" id="update-product-btn" class = "btn btn-info"> Update</button>  
+                  <button (click) = "openPopup(product)" class = "btn btn-danger" id="delete-product-btn" style="margin-left: 10px"> Delete</button>
+                </span>
+                <button (click) = "viewProduct(product.productId)" class = "btn btn-primary" id="view-product-btn" style="margin-left: 10px"> View</button>              
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div
+  class="modal customModal"
+  tabindex="-1"
+  role="dialog"
+  [ngStyle]="{'display':displayStyle}"
+
+  >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Delete the product {{selectedProduct.productTitle}}</h4>
+      </div>
+      <div class="modal-body">
+        <p>Do you want to continue?</p>
+  
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="deleteProduct(selectedProduct.productId)">
+            Continue anyway
+
+        </button>
+        <button type="button" class="btn btn-secondary" 
+                (click)="closePopup()">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+    

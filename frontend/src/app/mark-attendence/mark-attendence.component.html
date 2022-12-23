@@ -1,0 +1,94 @@
+<div>
+    <div>
+        <!-- Mark Attendance -->
+    </div>
+    <div class=" p-3 border-bottom border-secondary">
+        <div class="form-group my-2">
+            <label for="Department">Department</label>
+            <select class="form-select" #Department="ngModel" name="department" [(ngModel)]="dep" aria-label="Department selector">
+                <option selected>Select Department</option>
+                <option *ngFor="let title of deps" 
+                [value]="title.value" >
+              {{title.label}} </option>
+            </select>
+        </div>
+
+        <div class="row">
+
+            <div class="form-group my-2 col-6" >
+                <label for="year">Year</label>
+                <select class="form-select" #Year="ngModel" name="year" [(ngModel)]="year" aria-label="Year Selector">
+                    <option selected>Select Year</option>
+                    <option *ngFor="let title of years" 
+                    [value]="title.value" >
+                  {{title.label}} </option>
+                </select>
+            </div>
+            <div class="form-group my-2 col-6">
+                <label for="sem">Semester</label>
+                <select #Sem="ngModel" name="sem" [(ngModel)]="sem" class="form-select" aria-label="Semester Selector">
+                    <option selected>Select Sem</option>
+                    <option *ngFor="let title of sems" 
+                    [value]="title.value" >
+                  {{title.label}} </option>
+                </select>
+            </div>
+        </div>
+
+        <div class="text-center my-2">
+            <button (click)="loadStudents()" [disabled]="!sem || !dep || !year" class="btn btn-secondary ">
+                Load Student
+            </button>
+        </div>
+
+    </div>
+    <div class="p-3">
+        <div>
+            Students List
+        </div> 
+        <div style="width:50%">
+            <form [formGroup]="dropDownForm">
+                <ng-multiselect-dropdown
+                   [settings]="dropdownSettings"
+                   [data]="studentList"
+                   formControlName="myItems">
+                </ng-multiselect-dropdown>
+              </form>
+            
+        </div>
+        <div class="row">
+            <div class="form-group my-2 col-4">
+                <label for="Department">Subject</label>
+                <select #Subject="ngModel" name="subject" [(ngModel)]="subject" class="form-select" aria-label="Department selector">
+                    <option selected>Select Subject</option>
+                    <option *ngFor="let title of subs" 
+                    [value]="title.value" >
+                  {{title.label}} </option>
+                </select>
+            </div>
+            <div class="col-4 form-group my-2">
+                <label >Date</label>
+                <div>
+
+                    <input #SelectedDate="ngModel" name="selectedDate" [(ngModel)]="selectedDate" type="date" class="w-100">
+                </div>
+            </div>
+            <div class="col-4 form-group my-2">
+                <label >Status</label>
+                <select #Status="ngModel" name="status" [(ngModel)]="status" class="form-select" aria-label="Status selector">
+                    <option selected>Select Status</option>
+                    <option *ngFor="let title of attStatus" 
+                    [value]="title.value" >
+                  {{title.label}} </option>
+                </select>
+            </div>
+
+            <div class="text-center my-4">
+                <button class="btn btn-success" [disabled]="!status || !selectedDate || !subject" (click)="markAtt()">
+                    Mark Attendance
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+<div>
+    <app-header (toggleSidebar)="toggleSidebar($event)"></app-header>
+    <div  class="sidebar"   [ngClass]="{'sidebar-close': !isSidebarOpen }"
+    >
+
+        <app-sidebar         ></app-sidebar>
+    </div>
+    <div class="main-container p-4" [ngClass]="{'main-screen' : !isSidebarOpen}">
+
+        <router-outlet></router-outlet>
+    </div>
+    
+</div>

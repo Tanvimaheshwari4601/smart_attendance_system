@@ -1,0 +1,59 @@
+<h3> Hello {{user.name}} !!</h3>
+<div>
+    <div class="row">
+        <div class="col-4">
+            <label> <strong> Roll Number: </strong></label> {{user.rollno}}
+        </div>
+        <div class="col-4">
+            <label> <strong> Email ID: </strong></label> {{user.emailid}}
+        </div>
+        <div class="col-4">
+            <label> <strong> Department: </strong></label> {{user.departmentLabel}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <label> <strong> Year: </strong></label> {{user.yearLabel}}
+        </div>
+        <div class="col-4">
+            <label> <strong> Sem: </strong></label> {{user.semLabel}}
+        </div>
+    </div>
+    <div class="form-group my-2 mt-5">
+       <h3>
+        Attendance Sheet
+       </h3>
+           <div>
+            <label >Select Subject</label>
+            <div class="form-group my-2">
+                <select #Subject="ngModel" (change)="handleOnChange($event)" name="subject" [(ngModel)]="subject" class="form-select" aria-label="Department selector">
+                    <option selected>No Select</option>
+                    <option *ngFor="let title of subs" 
+                    [value]="title.value" >
+                  {{title.label}} </option>
+                </select>
+            </div>
+            </div>
+    </div>
+    <div *ngIf="atts.length != 0">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let att of atts"  class="data-row">
+                    <td>{{att.date}}</td>
+                    <td>{{att.statusLabel}}</td>
+    
+                </tr>
+            </tbody>
+            
+          </table>        
+    </div>
+    <div *ngIf="atts.length == 0">
+        No Attendance Found For Selected Subject !!
+    </div>
+</div>

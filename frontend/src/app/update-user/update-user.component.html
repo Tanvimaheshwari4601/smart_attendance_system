@@ -1,0 +1,76 @@
+<!-- <div class="col-md-6 offset-md-3 p-3">
+    <h3 class="text-center" id="update-user-title">Update User</h3>
+    <form (ngSubmit) = "onSubmit()">
+    
+        <div class="form-group my-2">
+            <label> First Name</label>
+            <input  pattern="^[a-zA-Z][a-zA-Z\\s]+$"  required type="text" #firstName="ngModel" [class.is-invalid]="(firstName.invalid && firstName.touched)"  class ="form-control" 
+            id = "firstName" [(ngModel)] = "user.firstname" name = "firstName">
+        
+            <div *ngIf="firstName.invalid && firstName.touched" class="text-danger">
+                <span *ngIf="firstName['errors'] && firstName['errors']['required']">
+                    First Name is required...
+                </span>
+                <span *ngIf="firstName['errors'] && firstName['errors']['pattern']">
+                    Please enter a valid input field...
+                </span>
+            </div>
+        </div>
+    
+        <div class="form-group my-2">
+            <label> Last Name</label>
+            <input type="text" pattern="^[a-zA-Z][a-zA-Z\\s]+$" #lastName="ngModel" required [class.is-invalid]="(lastName.invalid && lastName.touched)" class ="form-control" 
+            id = "lastName" [(ngModel)] = "user.lastname" name = "lastName">
+            <div *ngIf="lastName.invalid && lastName.touched" class="text-danger">
+                <span *ngIf="lastName['errors'] && lastName['errors']['required']">
+                    Last Name is required...
+                </span>
+                <span *ngIf="lastName['errors'] && lastName['errors']['pattern']">
+                    Please enter a valid input field...
+                </span>
+            </div>
+        </div>
+    
+        <div class="form-group my-2">
+            <label> Email Id</label>
+            <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" #emailid="ngModel" required [class.is-invalid]="(emailid.invalid && emailid.touched)" class ="form-control" 
+            id = "emailId" [(ngModel)] = "user.emailid" name = "emailId">
+            <span *ngIf="emailid['errors'] && emailid['errors']['required']">
+                emailid is required...
+            </span>
+            <span *ngIf="lastName['errors'] && lastName['errors']['pattern']">
+                Please enter a valid emailid...
+            </span>
+        </div>
+        <div class="form-group my-2">
+            <label> City</label>
+            <input type="text" #city="ngModel" required [class.is-invalid]="(city.invalid && city.touched)" class ="form-control" 
+            id = "City" [(ngModel)] = "user.city" name = "City">
+            <div *ngIf="city.invalid && city.touched" class="text-danger">
+                <span *ngIf="city['errors'] && city['errors']['required']">
+                   City Name is required...
+                </span>
+            </div>
+        </div>
+        <div class="form-group my-2">
+            <label> Phone Number</label>
+            <input type="tel" pattern="[1-9]{1}[0-9]{9}$" required #phonenumber="ngModel" [class.is-invalid]="(phonenumber.invalid && phonenumber.touched)" class ="form-control" 
+            id = "phonenumber"  [(ngModel)] = "user.phonenumber" name = "phonenumber">
+            <div *ngIf="phonenumber.invalid && phonenumber.touched" class="text-danger">
+                <span *ngIf="phonenumber['errors'] && phonenumber['errors']['pattern']">
+                    Enter Valid 10 digit Number(Number cannot start with zero).
+                </span>
+                <span *ngIf="phonenumber['errors'] && phonenumber['errors']['required']">
+                    Phone Number is required...
+                 </span>
+            </div>
+        </div>
+
+        <div class="text-center">
+
+            <button class = "btn btn-success" type ="submit">Update</button>
+        </div>
+    
+    
+    </form>
+    </div>  -->

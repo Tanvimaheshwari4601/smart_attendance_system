@@ -1,0 +1,27 @@
+<div>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Roll Number</th>
+            <th scope="col">Department</th>
+            <th scope="col">Year</th>
+            <th scope="col">Sem</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let st of students"  class="data-row">
+                <td>{{st.rollno}}</td>
+                <td>{{st.departmentLabel}}</td>
+                <td>{{st.yearLabel}}</td>
+                <td>{{st.semLabel}}</td>
+               
+                <td>
+                <button  (click)="userDetails(st.id)" class = "btn btn-primary" style="margin-left: 10px" id="view-btn"> View</button>              
+                </td>
+
+            </tr>
+        </tbody>
+        
+      </table>
+</div>
